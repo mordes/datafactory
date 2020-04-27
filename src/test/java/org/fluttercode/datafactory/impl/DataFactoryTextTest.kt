@@ -19,7 +19,7 @@ class DataFactoryTextTest {
         for (i in 0 until ITERATION_COUNT) {
             val maxLength = dataFactory!!.getSzamMaximumig(12)
             val word = dataFactory!!.getVeletlenSzo(maxLength, false)
-            Assert.assertTrue("Wrong size word", word.length <= maxLength)
+            Assert.assertTrue("Rossz meretu szo", word.length <= maxLength)
         }
     }
 
@@ -28,7 +28,7 @@ class DataFactoryTextTest {
         for (i in 0 until ITERATION_COUNT) {
             val maxLength = dataFactory!!.getSzamMaximumig(12)
             val word = dataFactory!!.getVeletlenSzo(maxLength, true)
-            Assert.assertTrue("Wrong size word", word.length == maxLength)
+            Assert.assertTrue("Rossz meretu szo", word.length == maxLength)
         }
     }
 
@@ -37,7 +37,7 @@ class DataFactoryTextTest {
         for (i in 0 until ITERATION_COUNT) {
             val maxLength = dataFactory!!.getSzamMaximumig(12)
             val word = dataFactory!!.getVeletlenSzo(maxLength, true)
-            Assert.assertTrue("Wrong size word", word.length == maxLength)
+            Assert.assertTrue("Rossz meretu szo", word.length == maxLength)
         }
     }
 
@@ -48,7 +48,7 @@ class DataFactoryTextTest {
             val text = dataFactory!!.getVeletlenSzoveg(len)
             Assert.assertNotNull(text)
             Assert.assertTrue(String.format(
-                    "Length does not match (%d, expected %d) '%s' ",
+                    "Hossz nem egyezik (%d, elvart hossz %d) '%s' ",
                     text.length, len, text), len == text.length)
         }
     }
@@ -59,11 +59,11 @@ class DataFactoryTextTest {
             val len = 512 + dataFactory!!.getSzamMaximumig(128)
             val text = dataFactory!!.getVeletlenSzoveg(len)
             Assert.assertTrue(String.format(
-                    "Length does not match (%d, expected %d) '%s' ",
+                    "Hossz nem egyezik (%d, elvárt hossz %d) '%s' ",
                     text.length, len, text), len == text.length)
             val words = text.split(" ").toTypedArray()
-            Assert.assertTrue("long texts should contain spaces", words.size > 32)
-            Assert.assertFalse("text should not contain double spaces", text.contains("  "))
+            Assert.assertTrue("hosszu szovegeknek celszeru szokozt tartalmaznia", words.size > 32)
+            Assert.assertFalse("szovegnek nem celszeru kettos szokozt tartalmaznia", text.contains("  "))
         }
     }
 
@@ -74,10 +74,10 @@ class DataFactoryTextTest {
             val maxLen = minLen + dataFactory!!.getSzamMaximumig(10)
             val text = dataFactory!!.getVeletlenSzoveg(minLen, maxLen)
             Assert.assertNotNull(text)
-            var msg = String.format("Length (%d) is less than expected minimum (%d) for iteration %d - text = '%s'",
+            var msg = String.format("Hossz (%d) kisebb mint az elvart minimum (%d) az iteraciohoz %d - szoveg = '%s'",
                     text.length, minLen, i, text)
             Assert.assertTrue(msg, minLen <= text.length)
-            msg = String.format("Length (%d) is more than expected (%d) for iteration %d - text = %s",
+            msg = String.format("Hossz (%d) nagyobb mint az elvart maximum (%d) az iteraciohoz %d - text = %s",
                     text.length, maxLen, i, text)
             Assert.assertTrue(msg, maxLen >= text.length)
         }
@@ -88,7 +88,7 @@ class DataFactoryTextTest {
         for (i in 0 until ITERATION_COUNT) {
             val maxLength = dataFactory!!.getSzamMaximumig(30)
             val word = dataFactory!!.getVeletlenSzo(maxLength, false)
-            Assert.assertTrue("Wrong size word", word.length <= maxLength)
+            Assert.assertTrue("Rossz meretu szo", word.length <= maxLength)
         }
     }
 
