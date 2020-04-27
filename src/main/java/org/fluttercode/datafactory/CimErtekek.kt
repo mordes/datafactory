@@ -22,20 +22,20 @@ package org.fluttercode.datafactory
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-interface AddressDataValues {
+interface CimErtekek {
     /**
      * @return Array of street address
      */
-    fun getStreetNames(): Array<String>
+    fun getUtcanevek(): Array<String>
 
     /**
      * @return Array of cities
      */
-    fun getCities(): Array<String>
+    fun getVarosok(): Array<String>
 
     /**
      * Returns a list of address suffixes such as "Lane", "Drive","Parkway"
      * @return Array of address suffixes
      */
-    fun getAddressSuffixes(): Array<String>
+    fun getCimVegzodesek(): Array<String>
 }

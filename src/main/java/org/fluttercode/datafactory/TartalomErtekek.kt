@@ -22,9 +22,9 @@ package org.fluttercode.datafactory
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-interface ContentDataValues {
-    fun getWords(): Array<String>
-    fun getBusinessTypes(): Array<String>
-    fun getEmailHosts(): Array<String>
+interface TartalomErtekek {
+    fun getSzavak(): Array<String>
+    fun getUzletTipusok(): Array<String>
+    fun getEmailHosztok(): Array<String>
     fun getTlds(): Array<String>
 }

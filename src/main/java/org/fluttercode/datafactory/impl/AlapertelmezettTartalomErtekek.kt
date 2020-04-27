@@ -1,6 +1,6 @@
 package org.fluttercode.datafactory.impl
 
-import org.fluttercode.datafactory.ContentDataValues
+import org.fluttercode.datafactory.TartalomErtekek
 
 /*
  * Copyright 2011, Andrew M Gibson
@@ -23,16 +23,16 @@ import org.fluttercode.datafactory.ContentDataValues
  * You should have received a copy of the GNU Lesser General Public License
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
- */   class DefaultContentDataValues : ContentDataValues {
-    override fun getWords(): Array<String> {
+ */   class AlapertelmezettTartalomErtekek : TartalomErtekek {
+    override fun getSzavak(): Array<String> {
         return Companion.words
     }
 
-    override fun getBusinessTypes(): Array<String> {
+    override fun getUzletTipusok(): Array<String> {
         return Companion.businessTypes
     }
 
-    override fun getEmailHosts(): Array<String> {
+    override fun getEmailHosztok(): Array<String> {
         return Companion.emailHosts
     }
 

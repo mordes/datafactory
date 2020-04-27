@@ -22,9 +22,9 @@ package org.fluttercode.datafactory
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-interface NameDataValues {
-    fun getFirstNames(): Array<String>
-    fun getLastNames(): Array<String>
-    fun getPrefixes(): Array<String>
-    fun getSuffixes(): Array<String>
+interface AdatErtekek {
+    fun getKeresztNevek(): Array<String>
+    fun getVezetekNevek(): Array<String>
+    fun getElotagok(): Array<String>
+    fun getVegzodesek(): Array<String>
 }

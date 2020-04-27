@@ -1,6 +1,6 @@
 package org.fluttercode.datafactory.impl
 
-import org.fluttercode.datafactory.AddressDataValues
+import org.fluttercode.datafactory.CimErtekek
 
 /*
  * Copyright 2011, Andrew M Gibson
@@ -23,16 +23,16 @@ import org.fluttercode.datafactory.AddressDataValues
  * You should have received a copy of the GNU Lesser General Public License
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
- */   class DefaultAddressDataValues : AddressDataValues {
-    override fun getCities(): Array<String> {
+ */   class AlapertelmezettCimErtekek : CimErtekek {
+    override fun getVarosok(): Array<String> {
         return Companion.cities
     }
 
-    override fun getStreetNames(): Array<String> {
+    override fun getUtcanevek(): Array<String> {
         return Companion.streetNames
     }
 
-    override fun getAddressSuffixes(): Array<String> {
+    override fun getCimVegzodesek(): Array<String> {
         return Companion.addressSuffixes
     }
 

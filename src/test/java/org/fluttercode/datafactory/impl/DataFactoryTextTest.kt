@@ -17,8 +17,8 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnRandomWordsOfVariedLength() {
         for (i in 0 until ITERATION_COUNT) {
-            val maxLength = dataFactory!!.getNumberUpTo(12)
-            val word = dataFactory!!.getRandomWord(maxLength, false)
+            val maxLength = dataFactory!!.getSzamMaximumig(12)
+            val word = dataFactory!!.getVeletlenSzo(maxLength, false)
             Assert.assertTrue("Wrong size word", word.length <= maxLength)
         }
     }
@@ -26,8 +26,8 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnRandomWordsOfSpecificLength() {
         for (i in 0 until ITERATION_COUNT) {
-            val maxLength = dataFactory!!.getNumberUpTo(12)
-            val word = dataFactory!!.getRandomWord(maxLength, true)
+            val maxLength = dataFactory!!.getSzamMaximumig(12)
+            val word = dataFactory!!.getVeletlenSzo(maxLength, true)
             Assert.assertTrue("Wrong size word", word.length == maxLength)
         }
     }
@@ -35,8 +35,8 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnRandomWordsOfSpecificLength2() {
         for (i in 0 until ITERATION_COUNT) {
-            val maxLength = dataFactory!!.getNumberUpTo(12)
-            val word = dataFactory!!.getRandomWord(maxLength, true)
+            val maxLength = dataFactory!!.getSzamMaximumig(12)
+            val word = dataFactory!!.getVeletlenSzo(maxLength, true)
             Assert.assertTrue("Wrong size word", word.length == maxLength)
         }
     }
@@ -44,8 +44,8 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnTextOfSpecificLength() {
         for (i in 0 until ITERATION_COUNT) {
-            val len = dataFactory!!.getNumberUpTo(40)
-            val text = dataFactory!!.getRandomText(len)
+            val len = dataFactory!!.getSzamMaximumig(40)
+            val text = dataFactory!!.getVeletlenSzoveg(len)
             Assert.assertNotNull(text)
             Assert.assertTrue(String.format(
                     "Length does not match (%d, expected %d) '%s' ",
@@ -56,8 +56,8 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnTextWithWords() {
         for (i in 0 until ITERATION_COUNT) {
-            val len = 512 + dataFactory!!.getNumberUpTo(128)
-            val text = dataFactory!!.getRandomText(len)
+            val len = 512 + dataFactory!!.getSzamMaximumig(128)
+            val text = dataFactory!!.getVeletlenSzoveg(len)
             Assert.assertTrue(String.format(
                     "Length does not match (%d, expected %d) '%s' ",
                     text.length, len, text), len == text.length)
@@ -70,9 +70,9 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnTextWithinBoundedLengths() {
         for (i in 0 until ITERATION_COUNT) {
-            val minLen = 10 + dataFactory!!.getNumberUpTo(20)
-            val maxLen = minLen + dataFactory!!.getNumberUpTo(10)
-            val text = dataFactory!!.getRandomText(minLen, maxLen)
+            val minLen = 10 + dataFactory!!.getSzamMaximumig(20)
+            val maxLen = minLen + dataFactory!!.getSzamMaximumig(10)
+            val text = dataFactory!!.getVeletlenSzoveg(minLen, maxLen)
             Assert.assertNotNull(text)
             var msg = String.format("Length (%d) is less than expected minimum (%d) for iteration %d - text = '%s'",
                     text.length, minLen, i, text)
@@ -86,95 +86,95 @@ class DataFactoryTextTest {
     @Test
     fun shouldReturnRandomWordsUpToLength() {
         for (i in 0 until ITERATION_COUNT) {
-            val maxLength = dataFactory!!.getNumberUpTo(30)
-            val word = dataFactory!!.getRandomWord(maxLength, false)
+            val maxLength = dataFactory!!.getSzamMaximumig(30)
+            val word = dataFactory!!.getVeletlenSzo(maxLength, false)
             Assert.assertTrue("Wrong size word", word.length <= maxLength)
         }
     }
 
     @Test
     fun shouldReturnRandomNumber() {
-        dataFactory!!.number
+        dataFactory!!.szam
     }
 
     @Test
     fun shouldReturnNegativeNumber() {
-        val random = dataFactory!!.getNumberBetween(Int.MIN_VALUE, -1)
+        val random = dataFactory!!.getSzamIntervallum(Int.MIN_VALUE, -1)
         Assert.assertTrue(random < 0)
     }
 
     @Test
     fun shouldReturnMinValue() {
-        val random = dataFactory!!.getNumberBetween(Int.MIN_VALUE, Int.MIN_VALUE)
+        val random = dataFactory!!.getSzamIntervallum(Int.MIN_VALUE, Int.MIN_VALUE)
         Assert.assertEquals(Int.MIN_VALUE.toLong(), random.toLong())
     }
 
     @Test
     fun shouldReturnMaxValue() {
-        val random = dataFactory!!.getNumberBetween(Int.MAX_VALUE, Int.MAX_VALUE)
+        val random = dataFactory!!.getSzamIntervallum(Int.MAX_VALUE, Int.MAX_VALUE)
         Assert.assertEquals(Int.MAX_VALUE.toLong(), random.toLong())
     }
 
     //Test param checking on randomWord()
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeLengthForRandomWord() {
-        dataFactory!!.getRandomWord(-1)
+        dataFactory!!.getVeletlenSzo(-1)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMinLenForRandomWord() {
-        dataFactory!!.getRandomWord(-1, 10)
+        dataFactory!!.getVeletlenSzo(-1, 10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMaxLenForRandomWord() {
-        dataFactory!!.getRandomWord(0, -10)
+        dataFactory!!.getVeletlenSzo(0, -10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnInvalidSizeLenForRandomWord() {
-        dataFactory!!.getRandomWord(10, 2)
+        dataFactory!!.getVeletlenSzo(10, 2)
     }
 
     //Test param checking on randomText()
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeLengthForRandomText() {
-        dataFactory!!.getRandomText(-1)
+        dataFactory!!.getVeletlenSzoveg(-1)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMinLenForRandomText() {
-        dataFactory!!.getRandomText(-1, 10)
+        dataFactory!!.getVeletlenSzoveg(-1, 10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMaxLenForRandomText() {
-        dataFactory!!.getRandomText(0, -10)
+        dataFactory!!.getVeletlenSzoveg(0, -10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnInvalidSizeLenForRandomText() {
-        dataFactory!!.getRandomText(10, 2)
+        dataFactory!!.getVeletlenSzoveg(10, 2)
     }
 
     //Test param checking on randomChars()
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeLengthForRandomChars() {
-        dataFactory!!.getRandomChars(-1)
+        dataFactory!!.getVeletlenKarakterek(-1)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMinLenForRandomChars() {
-        dataFactory!!.getRandomChars(-1, 10)
+        dataFactory!!.getVeletlenKarakterek(-1, 10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnNegativeMaxLenForRandomChars() {
-        dataFactory!!.getRandomChars(0, -10)
+        dataFactory!!.getVeletlenKarakterek(0, -10)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldErrorOnInvalidSizeLenForRandomChars() {
-        dataFactory!!.getRandomChars(10, 2)
+        dataFactory!!.getVeletlenKarakterek(10, 2)
     }
 }

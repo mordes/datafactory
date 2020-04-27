@@ -1,6 +1,6 @@
 package org.fluttercode.datafactory.impl
 
-import org.fluttercode.datafactory.NameDataValues
+import org.fluttercode.datafactory.AdatErtekek
 
 /*
  * Copyright 2011, Andrew M Gibson
@@ -23,27 +23,27 @@ import org.fluttercode.datafactory.NameDataValues
  * You should have received a copy of the GNU Lesser General Public License
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
- */   class DefaultNameDataValues : NameDataValues {
-    override fun getFirstNames(): Array<String> {
-        return Companion.firstNames
+ */   class AlapertelmezettAdatErtekek : AdatErtekek {
+    override fun getKeresztNevek(): Array<String> {
+        return Companion.keresztNevek
     }
 
-    override fun getLastNames(): Array<String> {
-        return Companion.lastNames
+    override fun getVezetekNevek(): Array<String> {
+        return Companion.vezetekNevek
     }
 
-    override fun getPrefixes(): Array<String> {
-        return Companion.prefixes
+    override fun getElotagok(): Array<String> {
+        return Companion.elotagok
     }
 
-    override fun getSuffixes(): Array<String> {
-        return Companion.suffixes
+    override fun getVegzodesek(): Array<String> {
+        return Companion.vegzodesek
     }
 
     companion object {
-        private val suffixes = arrayOf("II", "III", "Phd", "Jr", "Sr")
-        private val prefixes = arrayOf("Mr", "Mrs", "Ms")
-        private val firstNames = arrayOf("Aaron", "Abby", "Abigail", "Adam",
+        private val vegzodesek = arrayOf("II", "III", "Phd", "Jr", "Sr")
+        private val elotagok = arrayOf("Mr", "Mrs", "Ms")
+        private val keresztNevek = arrayOf("Aaron", "Abby", "Abigail", "Adam",
                 "Alan", "Albert", "Alex", "Alexandra", "Alexis", "Alice", "Alicia",
                 "Alisha", "Alissa", "Allen", "Allison", "Alyssa", "Amanda",
                 "Amber", "Amy", "Andrea", "Andrew", "Andy", "Angel", "Angela",
@@ -125,7 +125,7 @@ import org.fluttercode.datafactory.NameDataValues
                 "Victor", "Victoria", "Vincent", "Virginia", "Vivian", "Walter",
                 "Wanda", "Wayne", "Wendy", "Wesley", "Whitney", "William",
                 "Willie", "Wyatt", "Zachary")
-        private val lastNames = arrayOf("Abbott", "Acevedo", "Acosta",
+        private val vezetekNevek = arrayOf("Abbott", "Acevedo", "Acosta",
                 "Adams", "Adkins", "Aguilar", "Aguirre", "Albert", "Alexander",
                 "Alford", "Allen", "Allison", "Alston", "Alvarado", "Alvarez",
                 "Anderson", "Andrews", "Anthony", "Armstrong", "Arnold", "Ashley",
