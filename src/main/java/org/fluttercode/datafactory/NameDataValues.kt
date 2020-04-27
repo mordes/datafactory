@@ -1,4 +1,4 @@
-package org.fluttercode.datafactory;
+package org.fluttercode.datafactory
 
 /*
  * Copyright 2011, Andrew M Gibson
@@ -22,24 +22,9 @@ package org.fluttercode.datafactory;
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-
-public interface AddressDataValues {
-	
-	/**
-	 * @return Array of street address
-	 */
-	String[] getStreetNames();
-
-	/**
-	 * @return Array of cities
-	 */
-	String[] getCities();
-
-	/**
-	 * Returns a list of address suffixes such as "Lane", "Drive","Parkway"
-	 * @return Array of address suffixes
-	 */
-	String[] getAddressSuffixes();
-
+interface NameDataValues {
+    fun getFirstNames(): Array<String>
+    fun getLastNames(): Array<String>
+    fun getPrefixes(): Array<String>
+    fun getSuffixes(): Array<String>
 }

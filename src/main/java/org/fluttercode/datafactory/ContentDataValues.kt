@@ -1,4 +1,4 @@
-package org.fluttercode.datafactory;
+package org.fluttercode.datafactory
 
 /*
  * Copyright 2011, Andrew M Gibson
@@ -22,13 +22,9 @@ package org.fluttercode.datafactory;
  * along with DataFactory.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-
-public interface NameDataValues {
-
-	String[] getFirstNames();
-	String[] getLastNames();
-	String[] getPrefixes();
-	String[] getSuffixes();
-
+interface ContentDataValues {
+    fun getWords(): Array<String>
+    fun getBusinessTypes(): Array<String>
+    fun getEmailHosts(): Array<String>
+    fun getTlds(): Array<String>
 }
